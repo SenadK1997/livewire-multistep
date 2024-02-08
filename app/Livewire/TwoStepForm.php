@@ -41,8 +41,12 @@ class TwoStepForm extends Component
     }
     public function submit(){
         $dob = Carbon::create($this->year, $this->month, $this->day);
+        $marriageDate = Carbon::create($this->marriageYear, $this->marriageMonth, $this->marriageDay);
+        if($this->married == null) {
+            $this->addError('married', 'You must choose one option');
+            return;
+        }
         if ($this->married === 'Yes') {
-            $marriageDate = Carbon::create($this->marriageYear, $this->marriageMonth, $this->marriageDay);
             if ($marriageDate->lt($dob)) {
                 $this->addError('marriageDate', 'The marriage date cannot be before the date of birth.');
                 return;
@@ -100,8 +104,8 @@ class TwoStepForm extends Component
             $dob = Carbon::createFromFormat('m-d-Y', $this->month . '-' . $this->day . '-' . $this->year);
         }elseif($this->currentStep===2){
             $validated=$this->validate([
-                'email'=>'required|email|max:255',
-                'phone'=>'required|min:10',
+                'widowed' => 'required',
+                'pastMarriage' => 'required',
             ]);
         }
     }
