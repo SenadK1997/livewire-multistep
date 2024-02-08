@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col">
                     <select wire:model="month" class="form-select">
-                        {{-- <option value="">Select Month</option> --}}
+                        <option value="">Select Month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
                         <option value="3">March</option>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col">
                     <select wire:model="day" class="form-select">
-                        {{-- <option value="">Select Day</option> --}}
+                        <option value="">Select Day</option>
                         @for ($i = 1; $i <= 31; $i++)
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col">
                     <select wire:model="year" class="form-select">
-                        {{-- <option value="">Select Year</option> --}}
+                        <option value="">Select Year</option>
                         @for ($y = 2024; $y >= 1900; $y--)
                             <option value="{{ $y }}">{{ $y }}</option>
                         @endfor
@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col">
                                 <select wire:model="marriageMonth" class="form-select" required>
-                                    {{-- <option value="">Select Month</option> --}}
+                                    <option value="">Select Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
                                     <option value="3">March</option>
@@ -116,15 +116,15 @@
                             </div>
                             <div class="col">
                                 <select wire:model="marriageDay" class="form-select" required>
-                                    {{-- <option value="">Select Day</option> --}}
+                                    <option value="">Select Day</option>
                                     @for ($i = 1; $i <= 31; $i++)
-                                        <option value="{{ $i }}">{{ $i }}</option>
+                                        <option value="{{ $i }} @if ($i === 1) selected @endif ">{{ $i }}</option>
                                     @endfor
                                 </select>
                             </div>
                             <div class="col">
                                 <select wire:model="marriageYear" class="form-select" required>
-                                    {{-- <option value="">Select Year</option> --}}
+                                    <option value="">Select Year</option>
                                     @for ($y = 2024; $y >= 1900; $y--)
                                         <option value="{{ $y }}">{{ $y }}</option>
                                     @endfor

@@ -47,6 +47,8 @@ class TwoStepForm extends Component
             return;
         }
         if ($this->married === 'Yes') {
+            $dob = Carbon::create($this->year, $this->month, $this->day);
+            $marriageDate = Carbon::create($this->marriageYear, $this->marriageMonth, $this->marriageDay);
             if ($marriageDate->lt($dob)) {
                 $this->addError('marriageDate', 'The marriage date cannot be before the date of birth.');
                 return;
