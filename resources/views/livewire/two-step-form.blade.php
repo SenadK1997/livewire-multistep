@@ -75,6 +75,15 @@
                     </select>
                 </div>
             </div>
+            @error('month')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+            @error('day')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+            @error('year')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
             @error('dob')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -122,6 +131,7 @@
                                     @endfor
                                 </select>
                             </div>
+                            
                             <div class="col">
                                 <select wire:model="marriageYear" class="form-select" required>
                                     <option value="">Select Year</option>
@@ -131,7 +141,13 @@
                                 </select>
                             </div>
                         </div>
-                        @error('dob')
+                        @error('marriageYear')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('marriageMonth')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('marriageDay')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         @error('marriageDate')
